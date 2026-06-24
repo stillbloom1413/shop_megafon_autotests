@@ -1,5 +1,3 @@
-import time
-
 from locators.header_locators import HeaderLocators
 from pages.main_page import MainPage
 
