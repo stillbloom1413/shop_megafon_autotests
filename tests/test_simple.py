@@ -2,6 +2,9 @@ import time
 
 import pytest
 
-def test_simple(driver,url):
-    driver.get(url)
+from pages.main_page import MainPage
+
+
+def test_simple(driver):
+    MainPage(driver).navigate()
     time.sleep(5)

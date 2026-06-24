@@ -1,8 +1,8 @@
-class MainPage:
-    def __init__(self, driver, url):
-        self.driver = driver
-        self.url = url
+from core.base_page import BasePage
+
+
+class MainPage(BasePage):
 
     def navigate(self):
-        self.driver.get(self.url)
+        self.open()
         return self
