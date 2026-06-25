@@ -1,16 +1,16 @@
+from components.region_selector import RegionSelector
+from core.base_page import BasePage
 from locators.header_locators import HeaderLocators
-from pages.main_page import MainPage
 
 
-class HeaderComponent:
-    def __init__(self, driver, url):
-        self.driver = driver
-        self.url = url
+class HeaderComponent(BasePage):
+    def __init__(self, driver):
+        super().__init__(driver)
+        self.region_selector = RegionSelector(driver)
 
-    @property
-    def locate_logo(self):
-        return self.driver.find_element(*HeaderLocators.logo)
+    def click_region(self):
+        self.click(HeaderLocators.regions)
+        return self
 
-    def click_logo(self):
-        self.locate_logo.click()
-        return MainPage(self.driver)
+    def current_region(self):
+        return self.find(HeaderLocators.regions).text

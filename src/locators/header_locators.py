@@ -54,90 +54,62 @@ class HeaderLocators:
     support_icon = (By.CSS_SELECTOR, "div[class^='SupportChatIcon']")
     regions = (
         By.CSS_SELECTOR,
-        "div[class*='BaseMenu'] > div[class*='RegionsChangeButton']",
+        "div[class*='BaseMenu'] > div[class*='RegionsChangeButton'] > span",
     )
-
 
     # Локаторы на уровне поиска
-    catalog_btn = (
-        By.CSS_SELECTOR,
-        "button[class*='MainMenu_catalog']"
-    )
+    catalog_btn = (By.CSS_SELECTOR, "button[class*='MainMenu_catalog']")
 
-    main_search = (
-        By.XPATH,
-        "//div[contains(@class, 'MainMenu')]//input"
-    )
+    main_search = (By.XPATH, "//div[contains(@class, 'MainMenu')]//input")
 
-    compare_btn = (
-        By.CSS_SELECTOR,
-        "[href='/compare']"
-    )
+    compare_btn = (By.CSS_SELECTOR, "[href='/compare']")
 
-    checkout_btn = (
-        By.CSS_SELECTOR,
-        "[href='/checkout']"
-    )
+    checkout_btn = (By.CSS_SELECTOR, "[href='/checkout']")
 
-    authorization_btn = (
-        By.XPATH,
-        "//button[contains(text(),'Войти')]"
-    )
+    authorization_btn = (By.XPATH, "//button[contains(text(),'Войти')]")
 
     # самые нижние локаторы в хедере
-    promos = (
-        By.CSS_SELECTOR,
-        "li > [href='/actions']"
-    )
+    promos = (By.CSS_SELECTOR, "li > [href='/actions']")
 
-    new_items = (
-        By.CSS_SELECTOR,
-        "li > [href='/mobile/-new_goods']"
-    )
+    new_items = (By.CSS_SELECTOR, "li > [href='/mobile/-new_goods']")
 
     tariffs = (
         By.CSS_SELECTOR,
-        "ul[class*='Navigation'] > li > [href='/connect/tariffs']"
+        "ul[class*='Navigation'] > li > [href='/connect/tariffs']",
     )
 
     beautiful_numbers = (
         By.CSS_SELECTOR,
-        "ul[class*='Navigation'] > li > [href='/connect/chnumber/fullnumber']"
+        "ul[class*='Navigation'] > li > [href='/connect/chnumber/fullnumber']",
     )
 
-    number_transfer = (
-        By.XPATH,
-        "//li//span[contains(text(),'Перенос номера')]"
-    )
+    number_transfer = (By.XPATH, "//li//span[contains(text(),'Перенос номера')]")
 
-    esim = (
-        By.CSS_SELECTOR,
-        "li > [href='/connect/esim']"
-    )
+    esim = (By.CSS_SELECTOR, "li > [href='/connect/esim']")
 
     modems_routers = (
         By.CSS_SELECTOR,
-        "ul[class*='Navigation'] > li > [href='/modems_routers']"
+        "ul[class*='Navigation'] > li > [href='/modems_routers']",
     )
 
     credit_installments = (
         By.CSS_SELECTOR,
-        "ul[class*='Navigation'] > li > [href='/credit-and-installments']"
+        "ul[class*='Navigation'] > li > [href='/credit-and-installments']",
     )
 
     # Кнопка <Ещё>
 
     lower_else_btn = (
         By.XPATH,
-        "//ul[contains(@class,  'Header_navigationList')]/div/span[contains(text(),'Еще')]"
+        "//ul[contains(@class,  'Header_navigationList')]/div/span[contains(text(),'Еще')]",
     )
 
     else_btn_digital_content = (
         By.CSS_SELECTOR,
-        "ul[class*='Navigation_tooltip'] > li > [href='/digital_content']"
+        "ul[class*='Navigation_tooltip'] > li > [href='/digital_content']",
     )
 
     else_btn_insurance_products = (
         By.CSS_SELECTOR,
-        "ul[class*='Navigation_tooltip'] > li > [href='/insurance_products ']"
+        "ul[class*='Navigation_tooltip'] > li > [href='/insurance_products ']",
     )

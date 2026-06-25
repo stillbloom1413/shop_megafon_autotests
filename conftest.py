@@ -2,6 +2,8 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.webdriver import WebDriver
 
+pytest_plugins = ["src.fixtures.page_drivers"]
+
 
 @pytest.fixture(scope="session")
 def driver(request):

@@ -16,13 +16,12 @@ class BasePage(object):
         """Поиск элемента"""
         return self.wait.until(EC.visibility_of_element_located(locator))
 
-    def click(self,locator):
+    def click(self, locator):
         """Клик по элементу"""
         self.wait.until(EC.element_to_be_clickable(locator)).click()
 
-    def input_text(self,locator,text):
+    def input_text(self, locator, text):
         """Ввод текста"""
         element = self.wait.until(EC.element_to_be_clickable(locator))
         element.clear()
         element.send_keys(text)
-    
