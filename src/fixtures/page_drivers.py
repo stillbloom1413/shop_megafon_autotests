@@ -1,3 +1,4 @@
+import time
 import pytest
 
 from pages.main_page import MainPage
@@ -5,6 +6,13 @@ from pages.main_page import MainPage
 
 @pytest.fixture(scope="function")
 def main_page(driver):
+    page = MainPage(driver)
+    page.navigate()
+    return page
+
+
+@pytest.fixture(scope="function")
+def authorized_main_page(driver):
     page = MainPage(driver)
     page.navigate()
 
@@ -16,6 +24,7 @@ def main_page(driver):
     )
     page.driver.add_cookie({"name": "PHPSESSID", "value": "m9ab5t3o7ee1hkm6o3jt5mgru7"})
 
+    time.sleep(1)
     page.driver.refresh()
 
     return page
