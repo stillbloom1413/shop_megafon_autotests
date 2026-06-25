@@ -8,7 +8,7 @@ class HeaderComponent(BasePage):
         super().__init__(driver)
         self.region_selector = RegionSelector(driver)
 
-    def click_region(self):
+    def click_first_region(self):
         """
         Клик по региону справа сверху
         :return:

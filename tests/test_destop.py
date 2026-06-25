@@ -11,8 +11,7 @@ class TestDesktop:
     )
     def test_region_change(self, main_page, name, result):
         page = (
-            main_page.navigate()
-            .header.click_first_region()
+            main_page.header.click_first_region()
             .region_selector.input_region_name(region_name=name)
             .click_first_region()
         )
