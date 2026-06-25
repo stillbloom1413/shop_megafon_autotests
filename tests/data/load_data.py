@@ -3,6 +3,7 @@ from pathlib import Path
 
 
 def load_data(query, num=None):
+    """Загрузка тестовых данных из JSON"""
     current_dir = Path(__file__).resolve().parent
     data_file = current_dir / "search_queries.json"
     with open(data_file, "r", encoding="utf-8") as f:

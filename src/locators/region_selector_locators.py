@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class RegionsLocators:
-    """Локаторы попапа выбора региона"""
+    """Локаторы поп-апа выбора региона"""
 
     region_search = (
         By.XPATH,

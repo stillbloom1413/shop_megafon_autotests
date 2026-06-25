@@ -9,8 +9,15 @@ class HeaderComponent(BasePage):
         self.region_selector = RegionSelector(driver)
 
     def click_region(self):
+        """
+        Клик по региону справа сверху
+        :return:
+        """
         self.click(HeaderLocators.regions)
         return self
 
     def current_region(self):
+        """
+        :return: текущий регион
+        """
         return self.find(HeaderLocators.regions).text
