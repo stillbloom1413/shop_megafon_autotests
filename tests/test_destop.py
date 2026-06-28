@@ -13,7 +13,8 @@ class TestDesktop:
     )
     def test_region_change(self, page_factory, name, result):
         page = (
-            page_factory(MainPage).header.click_first_region()
+            page_factory(MainPage)
+            .header.click_first_region()
             .region_selector.input_region_name(region_name=name)
             .click_first_region()
         )

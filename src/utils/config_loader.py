@@ -1,12 +1,13 @@
 import json
 from pathlib import Path
 
+
 class ConfigLoader:
     ROOT_DIR = Path(__file__).resolve().parents[2]
 
     FILE_MAP = {
         "search": ROOT_DIR / "tests" / "data" / "search_queries.json",
-        "auth": ROOT_DIR / "config" / "auth_cookies.json"
+        "auth": ROOT_DIR / "config" / "auth_cookies.json",
     }
 
     @classmethod
