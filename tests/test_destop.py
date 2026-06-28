@@ -1,17 +1,19 @@
 import pytest
-from tests.data.load_data import load_data
+
+from pages.main_page import MainPage
+from utils.config_loader import ConfigLoader
 
 
 class TestDesktop:
 
     @pytest.mark.parametrize(
         "name, result",
-        load_data("regions").items(),
-        ids=list(load_data("regions").keys()),
+        ConfigLoader.get_regions().items(),
+        ids=list(ConfigLoader.get_regions().keys()),
     )
-    def test_region_change(self, main_page, name, result):
+    def test_region_change(self, page_factory, name, result):
         page = (
-            main_page.header.click_first_region()
+            page_factory(MainPage).header.click_first_region()
             .region_selector.input_region_name(region_name=name)
             .click_first_region()
         )
