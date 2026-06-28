@@ -1,8 +1,12 @@
 import time
 import pytest
 
+from pages.catalog_page import CatalogPage
 from pages.main_page import MainPage
 
+COOKIES = [
+    
+]
 
 @pytest.fixture(scope="function")
 def main_page(driver):
@@ -28,3 +32,54 @@ def authorized_main_page(driver):
     page.driver.refresh()
 
     return page
+
+
+import time
+import pytest
+
+from pages.catalog_page import CatalogPage
+from pages.main_page import MainPage
+from tests.data.load_data import load_data
+
+
+def _authorize_driver(driver):
+    """Приватный хелпер для подкладывания кук из конфигурационного файла JSON"""
+    # Забираем чистый список кук из файла конфигурации
+    cookies = load_data("auth_cookies")
+    for cookie in cookies:
+        driver.add_cookie(cookie)
+
+    time.sleep(1)
+    driver.refresh()
+
+
+@pytest.fixture(scope="function")
+def main_page_factory(driver):
+    """Фабрика для Главной страницы (умеет возвращать гостя или авторизованного)"""
+
+    def _create_main_page(authorized=False):
+        page = MainPage(driver)
+        page.navigate()
+        if authorized:
+            _authorize_driver(page.driver)
+        return page
+
+    return _create_main_page
+
+
+@pytest.fixture(scope="function")
+def catalog_factory(driver):
+    """Фабрика для страниц Каталога (принимает любой URL-путь и статус авторизации)"""
+
+    def _create_catalog_page(category="/mobile", authorized=False):
+        page = CatalogPage(driver)
+
+        # Надежный паттерн: авторизуемся через корень, затем прыгаем в категорию
+        if authorized:
+            page.open()  # открываем базовый URL
+            _authorize_driver(page.driver)
+
+        page.navigate(category)
+        return page
+
+    return _create_catalog_page

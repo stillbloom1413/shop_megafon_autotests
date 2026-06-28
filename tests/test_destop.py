@@ -16,3 +16,6 @@ class TestDesktop:
             .click_first_region()
         )
         assert result.lower() in page.header.current_region().lower()
+
+    def test_catalog_filters(self):
+        pass
