@@ -38,7 +38,6 @@ class ConfigLoader:
         test_data = []
 
         for section in data["catalog_sections"]:
-            # Если мы запросили конкретный раздел, а текущий не совпадает — пропускаем его
             if section_name and section["section_name"] != section_name:
                 continue
 
@@ -47,7 +46,6 @@ class ConfigLoader:
                 dto = FilterDTO(**item)
                 test_data.append((url, dto))
 
-        # Если такого раздела вдруг нет в JSON, будет полезно выбросить понятную ошибку
         if not test_data and section_name:
             raise ValueError(f"Раздел '{section_name}' не найден в catalog_filters.json")
 
