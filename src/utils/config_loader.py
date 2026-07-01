@@ -1,13 +1,16 @@
 import json
 from pathlib import Path
 
+from tests.data.filter import FilterDTO
+
 
 class ConfigLoader:
     ROOT_DIR = Path(__file__).resolve().parents[2]
 
     FILE_MAP = {
-        "search": ROOT_DIR / "tests" / "data" / "search_queries.json",
         "auth": ROOT_DIR / "config" / "auth_cookies.json",
+        "search": ROOT_DIR / "tests" / "data" / "test_data.json",
+        "filters": ROOT_DIR / "tests" / "data" / "catalog_filters.json",
     }
 
     @classmethod
@@ -28,3 +31,24 @@ class ConfigLoader:
         """Возвращает куки авторизации для фикстур"""
         data = cls._load_json("auth")
         return data["cookies"]
+
+    @classmethod
+    def get_catalog_test_data(cls, section_name: str = None):
+        data = cls._load_json("filters")
+        test_data = []
+
+        for section in data["catalog_sections"]:
+            # Если мы запросили конкретный раздел, а текущий не совпадает — пропускаем его
+            if section_name and section["section_name"] != section_name:
+                continue
+
+            url = section["url"]
+            for item in section["filters"]:
+                dto = FilterDTO(**item)
+                test_data.append((url, dto))
+
+        # Если такого раздела вдруг нет в JSON, будет полезно выбросить понятную ошибку
+        if not test_data and section_name:
+            raise ValueError(f"Раздел '{section_name}' не найден в catalog_filters.json")
+
+        return test_data

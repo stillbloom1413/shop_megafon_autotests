@@ -1,0 +1,109 @@
+{
+  "catalog_sections": [
+    {
+      "section_name": "Смартфоны",
+      "url": "/mobile",
+      "filters": [
+        {
+          "type": "text_input",
+          "group": "Цена",
+          "min": "10000",
+          "max": "80000"
+        },
+        {
+          "type": "checkbox",
+          "group": "Срок получения",
+          "value": "Сегодня"
+        },
+        {
+          "type": "switch",
+          "group": "Акции и скидки"
+        },
+        {
+          "type": "checkbox",
+          "group": "Способ получения",
+          "value": "Самовывоз"
+        },
+        {
+          "type": "checkbox",
+          "group": "Бренд",
+          "value": "Apple"
+        },
+        {
+          "type": "accordion_checkbox",
+          "group": "Цвет",
+          "value": "Белый"
+        },
+        {
+          "type": "accordion_checkbox",
+          "group": "Объем встроенной памяти",
+          "value": "128 ГБ"
+        },
+        {
+          "type": "accordion_input",
+          "group": "Объем оперативной памяти",
+          "min": "8",
+          "max": "16"
+        },
+        {
+          "type": "accordion_checkbox",
+          "group": "Формат СИМ",
+          "value": "еСИМ"
+        },
+        {
+          "type": "accordion_checkbox",
+          "group": "Поддержка еСИМ",
+          "value": "Да"
+        },
+        {
+          "type": "accordion_input",
+          "group": "Емкость аккумуляторной батареи",
+          "min": "4000",
+          "max": "10000"
+        },
+        {
+          "type": "accordion_input",
+          "group": "Диагональ дисплея",
+          "min": "6",
+          "max": "8"
+        },
+        {
+          "type": "accordion_checkbox",
+          "group": "Тип дисплея",
+          "value": "AMOLED"
+        },
+        {
+          "type": "accordion_checkbox",
+          "group": "Наличие NFC",
+          "value": "Да"
+        },
+        {
+          "type": "accordion_checkbox",
+          "group": "Поддержка 5G",
+          "value": "Да"
+        },
+        {
+          "type": "accordion_checkbox",
+          "group": "Количество модулей основной камеры",
+          "value": "3"
+        },
+        {
+          "type": "accordion_input",
+          "group": "Максимальное разрешение основной камеры",
+          "min": "50",
+          "max": "200"
+        },
+        {
+          "type": "accordion_checkbox",
+          "group": "Функция быстрой зарядки",
+          "value": "Да"
+        },
+        {
+          "type": "accordion_checkbox",
+          "group": "Уцененный товар",
+          "value": "Да"
+        }
+      ]
+    }
+  ]
+}

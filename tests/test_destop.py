@@ -1,5 +1,8 @@
+import time
+
 import pytest
 
+from pages.catalog_page import CatalogPage
 from pages.main_page import MainPage
 from utils.config_loader import ConfigLoader
 
@@ -20,5 +23,12 @@ class TestDesktop:
         )
         assert result.lower() in page.header.current_region().lower()
 
-    def test_catalog_filters(self):
-        pass
+    @pytest.mark.parametrize(
+        "url, filter_data",
+        # Прямо из теста командуем лоадеру: "Дай мне только смартфоны!"
+        ConfigLoader.get_catalog_test_data(section_name="Смартфоны"),
+        ids=lambda data: f"{data[0]} -> {data[1].group}"
+    )
+    def test_catalog_filters(self, page_factory, filter_data, url):
+        page = page_factory(CatalogPage, url=url)
+        time.sleep(60)
