@@ -3,6 +3,11 @@ from selenium.webdriver.common.by import By
 
 class CatalogPageLocators:
 
+    FIRST_PRODUCT = (
+        By.XPATH,
+        "//div[contains(@class, 'CardList_grid')]/div[1]/div/a[1]",
+    )
+
     @classmethod
     def accordion_locator(cls, group_name: str) -> tuple:
         """
@@ -50,9 +55,9 @@ class CatalogPageLocators:
         :return: локатор
         """
         xpath = (
-            f"//div[contains(text(), '{group_name}')]"
+            f"(//div[contains(text(), '{group_name}')]"
             f"/ancestor::div[contains(@class, 'ToggleFilter')]"
-            f"//input"
+            f"//span)[2]"
         )
         return By.XPATH, xpath
 

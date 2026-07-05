@@ -46,7 +46,4 @@ class ConfigLoader:
                 dto = FilterDTO(**item)
                 test_data.append((url, dto))
 
-        if not test_data and section_name:
-            raise ValueError(f"Раздел '{section_name}' не найден в catalog_filters.json")
-
         return test_data

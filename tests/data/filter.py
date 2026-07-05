@@ -1,11 +1,11 @@
 from dataclasses import dataclass
-from typing import Optional
+from typing import Optional, List, Union
 
 
 @dataclass
 class FilterDTO:
-    type: str
+    filter_type: str
     group: str
-    value: Optional[str] = None
-    min: Optional[str] = None
-    max: Optional[str] = None
+    value: Optional[Union[str, int, List[Union[int, str]]]] = None
+    boundary: Optional[List[str]] = None
+    characteristic: Optional[str] = None

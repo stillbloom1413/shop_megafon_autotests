@@ -5,101 +5,117 @@
       "url": "/mobile",
       "filters": [
         {
-          "type": "text_input",
+          "filter_type": "text_input",
           "group": "Цена",
-          "min": "10000",
-          "max": "80000"
+          "boundary": ["min","max"],
+          "value": [10000,20000]
         },
         {
-          "type": "checkbox",
+          "filter_type": "checkbox",
           "group": "Срок получения",
           "value": "Сегодня"
         },
         {
-          "type": "switch",
+          "filter_type": "switch",
           "group": "Акции и скидки"
         },
         {
-          "type": "checkbox",
+          "filter_type": "switch",
+          "group": "Рассрочка"
+        },
+        {
+          "filter_type": "checkbox",
           "group": "Способ получения",
           "value": "Самовывоз"
         },
         {
-          "type": "checkbox",
+          "filter_type": "checkbox",
           "group": "Бренд",
           "value": "Apple"
         },
         {
-          "type": "accordion_checkbox",
+          "filter_type": "accordion_checkbox",
           "group": "Цвет",
           "value": "Белый"
         },
         {
-          "type": "accordion_checkbox",
+          "filter_type": "accordion_checkbox",
           "group": "Объем встроенной памяти",
-          "value": "128 ГБ"
+          "value": "128 ГБ",
+          "characteristic": "Объем встроенной памяти"
         },
         {
-          "type": "accordion_input",
+          "filter_type": "accordion_input",
           "group": "Объем оперативной памяти",
-          "min": "8",
-          "max": "16"
+          "boundary": ["min","max"],
+          "value": [8,16],
+          "characteristic":"Объем оперативной памяти (RAM)"
         },
         {
-          "type": "accordion_checkbox",
+          "filter_type": "accordion_checkbox",
           "group": "Формат СИМ",
-          "value": "еСИМ"
+          "value": "еСИМ",
+          "characteristic":"Поколение СИМ-карты"
         },
         {
-          "type": "accordion_checkbox",
+          "filter_type": "accordion_checkbox",
           "group": "Поддержка еСИМ",
-          "value": "Да"
+          "value": "Да",
+          "characteristic":"Поколение СИМ-карты"
         },
         {
-          "type": "accordion_input",
+          "filter_type": "accordion_input",
           "group": "Емкость аккумуляторной батареи",
-          "min": "4000",
-          "max": "10000"
+          "boundary": ["min","max"],
+          "value": [4000,10000],
+          "characteristic":"Емкость аккумулятора"
         },
         {
-          "type": "accordion_input",
+          "filter_type": "accordion_input",
           "group": "Диагональ дисплея",
-          "min": "6",
-          "max": "8"
+          "boundary": ["min","max"],
+          "value": [6,8],
+          "characteristic": "Диагональ дисплея"
         },
         {
-          "type": "accordion_checkbox",
+          "filter_type": "accordion_checkbox",
           "group": "Тип дисплея",
-          "value": "AMOLED"
+          "value": "AMOLED",
+          "characteristic": "Тип дисплея"
         },
         {
-          "type": "accordion_checkbox",
+          "filter_type": "accordion_checkbox",
           "group": "Наличие NFC",
-          "value": "Да"
+          "value": "Да",
+          "characteristic": "Модуль NFC"
         },
         {
-          "type": "accordion_checkbox",
+          "filter_type": "accordion_checkbox",
           "group": "Поддержка 5G",
-          "value": "Да"
+          "value": "Да",
+          "characteristic": "Стандарты 5G"
         },
         {
-          "type": "accordion_checkbox",
+          "filter_type": "accordion_checkbox",
           "group": "Количество модулей основной камеры",
-          "value": "3"
+          "value": "3",
+          "characteristic": "Основная камера"
         },
         {
-          "type": "accordion_input",
+          "filter_type": "accordion_input",
           "group": "Максимальное разрешение основной камеры",
-          "min": "50",
-          "max": "200"
+          "boundary": ["min","max"],
+          "value": [50,200],
+          "characteristic": "Основная камера"
         },
         {
-          "type": "accordion_checkbox",
+          "filter_type": "accordion_checkbox",
           "group": "Функция быстрой зарядки",
-          "value": "Да"
+          "value": "Да",
+          "characteristic": "Функция быстрой зарядки"
         },
         {
-          "type": "accordion_checkbox",
+          "filter_type": "accordion_checkbox",
           "group": "Уцененный товар",
           "value": "Да"
         }
