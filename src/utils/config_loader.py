@@ -34,6 +34,7 @@ class ConfigLoader:
 
     @classmethod
     def get_catalog_test_data(cls, section_name: str = None):
+        """Грузит фильтры каталога в парам тест"""
         data = cls._load_json("filters")
         test_data = []
 

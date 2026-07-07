@@ -1,5 +1,3 @@
-import re
-
 from core.base_page import BasePage
 from locators.catalog_page_locators import CatalogPageLocators
 from pages.product_page import ProductPage
@@ -64,7 +62,7 @@ class CatalogPage(BasePage):
         self.click(locator)
         return self
 
-    def select_first_product(self):
+    def select_first_product(self) -> ProductPage:
         """
         Клик по первому товару из списка
         :return:

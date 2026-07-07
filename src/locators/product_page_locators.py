@@ -10,8 +10,9 @@ class ProductPageLocators:
                        "//span[contains(@role, 'presentation')]")
     INSTALLMENT = (By.XPATH, "//div[contains(@class, 'PriceAndCreditBlock')]"
                     "//div[contains(text(),'Рассрочка')]")
-    PICKUP = (By.XPATH,"(//div[contains(@class, 'DeliveriesGroups')]"
+    PICKUP_TODAY = (By.XPATH,"(//div[contains(@class, 'DeliveriesGroups')]"
                        "//div[contains(text(), 'Забрать сегодня')])[1]")
+    # не используется
     NO_PICKUP = (By.XPATH, "(//div[contains(@class, 'DeliveriesGroups')]"
                            "//button[contains(text(),'в 0 салонаx')])[1]")
     DISCOUNTS_BLOCK = (By.XPATH,"//div[contains(@class, 'DiscountsBlock')]")
@@ -24,12 +25,12 @@ class ProductPageLocators:
         return By.XPATH, xpath
 
     @classmethod
-    def colour_locators(cls, value):
-        xpath = f"(//div[contains(text(), '{value}')]/following-sibling::p)[1]"
+    def colour_locators(cls, colour):
+        xpath = f"(//div[contains(text(), '{colour}')]/following-sibling::p)[1]"
         return By.XPATH, xpath
 
     @classmethod
-    def section_locators(cls, value):
+    def section_locators(cls, section):
         xpath = (f"//a/div[contains(@data-testid, 'core-title') "
-                 f"and contains(text(), '{value}')]")
+                 f"and contains(text(), '{section}')]")
         return By.XPATH, xpath

@@ -9,3 +9,6 @@ class FilterDTO:
     value: Optional[Union[str, int, List[Union[int, str]]]] = None
     boundary: Optional[List[str]] = None
     characteristic: Optional[str] = None
+
+    def extract(self):
+        return self.filter_type, self.group, self.value, self.boundary, self.characteristic

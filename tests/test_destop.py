@@ -30,21 +30,21 @@ class TestDesktop:
         ids=lambda data: data.group if hasattr(data, "group") else str(data),
     )
     def test_catalog_filters(self, page_factory, filter_data, url):
-        filter_dict = asdict(filter_data)
-        page = page_factory(CatalogPage, url=url)
-        filter_type, group_name, value, boundary = (
-            filter_dict.get("filter_type"),
-            filter_dict.get("group"),
-            filter_dict.get("value"),
-            filter_dict.get("boundary"),
-        )
+        filter_type, group_name, value, boundary, characteristic = filter_data.extract()
         final_value = value[0] if isinstance(value, list) else value
         final_boundary = boundary[0] if isinstance(boundary, list) else boundary
 
-        page.click_filter(
+        page = page_factory(CatalogPage, url=url).click_filter(
             filter_type=filter_type,
             group_name=group_name,
             value=final_value,
             boundary=final_boundary,
         ).apply_or_discard_filter(value="Применить фильтры").select_first_product()
-        time.sleep(2)
+
+        if characteristic:
+            page.select_section("Характеристики")
+            actual_text = page.get_characteristic_text(characteristic)
+            if isinstance(actual_text, int):
+                assert actual_text >= final_value
+            else:
+                assert final_value.lower() in actual_text.lower()
